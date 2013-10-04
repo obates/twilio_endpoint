@@ -1,0 +1,57 @@
+{
+    "name": "twilio",
+    "display": "Twilio Endpoint",
+    "description": "Twilio Endpoint",
+    "help": "http://guides.spreecommerce.com/integration/endpoints/twilio",
+    "icon_url": "twilio.png",
+    "services": [
+        {
+            "name": "sms_order",
+            "path": "/sms_order",
+            "description": "Sends a sms for every new order",
+            "requires": {
+                "parameters": [
+                                {
+                                  "name": "account_sid",
+                                  "description": "Twilio Account Sid"
+                                },
+                                {
+                                  "name": "auth_token",
+                                  "description": "Twillio Auth Token"
+                                },
+                                {
+                                  "name": "phone_from",
+                                  "description": "Twilio registered phone number"
+                                }
+                              ]
+            },
+            "recommends": {
+              "messages": [ "order:new" ]
+            }
+        },
+        {
+            "name": "call_order",
+            "path": "/call_order",
+            "description": "Makes a call for every new order",
+            "requires": {
+                "parameters": [
+                                {
+                                  "name": "account_sid",
+                                  "description": "Twilio Account Sid"
+                                },
+                                {
+                                  "name": "auth_token",
+                                  "description": "Twillio Auth Token"
+                                },
+                                {
+                                  "name": "phone_from",
+                                  "description": "Twilio registered phone number"
+                                }
+                              ]
+            },
+            "recommends": {
+              "messages": [ "order:new" ]
+            }
+        }
+    ]
+}
