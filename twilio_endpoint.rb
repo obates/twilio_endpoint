@@ -1,8 +1,9 @@
 require 'uri'
 
 class Order
-  def initialize(order_hash)
+  def initialize(order_hash, config)
     @order_hash = order_hash
+    @config     = config
   end
 
   def address
@@ -27,7 +28,7 @@ class TwilioEndpoint < EndpointBase
   set :logging, true
 
   post '/sms_order' do
-    order  = Order.new(@message['payload']['order'])
+    order  = Order.new(@message['payload']['order'], @config)
 
     client = Twilio::REST::Client.new(@config['twilio.account_sid'], @config['twilio.auth_token'])
 
@@ -43,7 +44,7 @@ class TwilioEndpoint < EndpointBase
   end
 
   post '/call_order' do
-    order  = Order.new(@message['payload']['order'])
+    order  = Order.new(@message['payload']['order'], @config)
 
     client = Twilio::REST::Client.new(@config['twilio.account_sid'], @config['twilio.auth_token'])
 
