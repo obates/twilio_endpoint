@@ -5,8 +5,13 @@ class Order
     @order_hash = order_hash
   end
 
+  def address
+    address_type = @config['twilio.address_type'] || "billing"
+    @order_hash["#{address_type}_address"]
+  end
+
   def customer_phone
-    @order_hash['billing_address']['phone']
+    address['phone']
   end
 
   def number
@@ -14,7 +19,7 @@ class Order
   end
 
   def customer_name
-    @order_hash['billing_address']['firstname']
+    address['firstname']
   end
 end
 
