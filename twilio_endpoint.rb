@@ -40,7 +40,8 @@ class TwilioEndpoint < EndpointBase
       body:   body
     )
 
-    process_result 200, { message_id: @message[:message_id], notifications: [{level: 'info', subject: 'SMS confirmation sent to #{order.customer_phone}', description: body}] }
+    process_result 200, { message_id: @message[:message_id],
+                          notifications: [{ level: 'info', subject: "SMS confirmation sent to #{order.customer_phone}", description: body }] }
   end
 
   post '/call_order' do
@@ -60,7 +61,8 @@ class TwilioEndpoint < EndpointBase
       url:    url
     )
 
-    process_result 200, { message_id: @message[:message_id], notifications: [{level: 'info', subject: 'Call placed to #{order.customer_phone}', description: body}] }
+    process_result 200, { message_id: @message[:message_id],
+                          notifications: [{ level: 'info', subject: "Call placed to #{order.customer_phone}", description: body }] }
   end
 end
 
