@@ -1,5 +1,4 @@
 class Message
-
   def initialize(config, message_text, phone_number)
     @client = Twilio::REST::Client.new(config['twilio.account_sid'], config['twilio.auth_token'])
     @config = config

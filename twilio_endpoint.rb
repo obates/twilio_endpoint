@@ -10,7 +10,7 @@ class TwilioEndpoint < EndpointBase
     client = Twilio::REST::Client.new(@config['twilio.account_sid'], @config['twilio.auth_token'])
 
     body   = "Hey #{order.customer_name}! Your order #{order.number} has been received."
-    
+
     message = Message.new(@config, body, order.customer_phone)
     message.deliver
 
@@ -27,7 +27,7 @@ class TwilioEndpoint < EndpointBase
     client = Twilio::REST::Client.new(@config['twilio.account_sid'], @config['twilio.auth_token'])
 
     body   = "Hey #{name}! Your shipment \##{shipment} for order \##{order} has shipped."
-    
+
     message = Message.new(@config, body, phone)
     message.deliver
 
@@ -41,14 +41,12 @@ class TwilioEndpoint < EndpointBase
     client = Twilio::REST::Client.new(@config['twilio.account_sid'], @config['twilio.auth_token'])
 
     body   = "Hey #{order.customer_name}! Your order #{order.number} has been received."
-    
+
     message = Message.new(@config, body, order.customer_phone)
     message.deliver
 
 
     process_result 200, { message_id: @message[:message_id], notifications: [{level: 'info', subject: "SMS confirmation sent to #{order.customer_phone}", description: body}] }
   end
-
-
 end
 
