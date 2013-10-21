@@ -34,9 +34,9 @@
             }
         },
         {
-            "name": "call_order",
-            "path": "/call_order",
-            "description": "Makes a call for every new order",
+            "name": "sms_ship",
+            "path": "/sms_ship",
+            "description": "Sends an SMS when every shipment ships",
             "requires": {
                 "parameters": [
                                 {
@@ -54,7 +54,7 @@
                               ]
             },
             "recommends": {
-              "messages": [ "order:new" ]
+              "messages": [ "shipment:confirm" ]
             }
         }
     ]
