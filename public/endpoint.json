@@ -50,6 +50,10 @@
                                 {
                                   "name": "phone_from",
                                   "description": "Twilio registered phone number"
+                                },
+                                {
+                                  "name": "address_type",
+                                  "description": "Address values to use for Message, either billing or shipping"
                                 }
                               ]
             },
