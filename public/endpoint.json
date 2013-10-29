@@ -1,65 +1,68 @@
 {
-    "name": "twilio",
-    "display": "Twilio Endpoint",
-    "description": "Twilio Endpoint",
-    "help": "http://guides.spreecommerce.com/integration/endpoints/twilio",
-    "icon_url": "twilio.png",
-    "services": [
-        {
-            "name": "sms_order",
-            "path": "/sms_order",
-            "description": "Sends a sms for every new order",
-            "requires": {
-                "parameters": [
-                                {
-                                  "name": "account_sid",
-                                  "description": "Twilio Account Sid"
-                                },
-                                {
-                                  "name": "auth_token",
-                                  "description": "Twillio Auth Token"
-                                },
-                                {
-                                  "name": "phone_from",
-                                  "description": "Twilio registered phone number"
-                                },
-                                {
-                                  "name": "address_type",
-                                  "description": "Address values to use for Message, either billing or shipping"
-                                }
-                              ]
-            },
-            "recommends": {
-              "messages": [ "order:new" ]
-            }
-        },
-        {
-            "name": "sms_ship",
-            "path": "/sms_ship",
-            "description": "Sends an SMS when every shipment ships",
-            "requires": {
-                "parameters": [
-                                {
-                                  "name": "account_sid",
-                                  "description": "Twilio Account Sid"
-                                },
-                                {
-                                  "name": "auth_token",
-                                  "description": "Twillio Auth Token"
-                                },
-                                {
-                                  "name": "phone_from",
-                                  "description": "Twilio registered phone number"
-                                },
-                                {
-                                  "name": "address_type",
-                                  "description": "Address values to use for Message, either billing or shipping"
-                                }
-                              ]
-            },
-            "recommends": {
-              "messages": [ "shipment:confirm" ]
-            }
-        }
-    ]
+  "name": "twilio",
+  "display": "Twilio Endpoint",
+  "description": "Twilio Endpoint",
+  "help": "http://guides.spreecommerce.com/integration/endpoints/twilio",
+  "icon_url": "twilio.png",
+  "services": [
+  {
+    "name": "sms_order",
+    "path": "/sms_order",
+    "description": "Sends a sms for every new order",
+    "requires": {
+      "parameters": [
+      {
+        "name": "account_sid",
+        "description": "Twilio Account Sid"
+      },
+      {
+        "name": "auth_token",
+        "description": "Twillio Auth Token"
+      },
+      {
+        "name": "phone_from",
+        "description": "Twilio registered phone number"
+      },
+      {
+        "name": "address_type",
+        "description": "Address values to use for Message, either billing or shipping"
+      }
+      ]
+    },
+    "recommends": {
+      "messages": [ "order:new" ]
+    }
+  },
+  {
+    "name": "sms_ship",
+    "path": "/sms_ship",
+    "description": "Sends an SMS when every shipment ships",
+    "requires": {
+      "parameters": [
+      {
+        "name": "account_sid",
+        "description": "Twilio Account Sid"
+      },
+      {
+        "name": "auth_token",
+        "description": "Twillio Auth Token"
+      },
+      {
+        "name": "phone_from",
+        "description": "Twilio registered phone number"
+      },
+      {
+        "name": "address_type",
+        "description": "Address values to use for Message, either billing or shipping"
+      }
+      ]
+    },
+    "recommends": {
+      "messages": [ "shipment:confirm" ],
+      "identifiers" : {
+        "order_number": "payload.shipment.order_number"
+      }
+    }
+  }
+  ]
 }
