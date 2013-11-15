@@ -25,7 +25,8 @@
       },
       {
         "name": "address_type",
-        "description": "Address values to use for Message, either billing or shipping"
+        "description": "Address values to use for Message, either billing or shipping",
+        "allowed": ["billing", "shipping"]
       }
       ]
     },
@@ -53,7 +54,8 @@
       },
       {
         "name": "address_type",
-        "description": "Address values to use for Message, either billing or shipping"
+        "description": "Address values to use for Message, either billing or shipping",
+        "allowed": ["billing", "shipping"]
       }
       ]
     },
