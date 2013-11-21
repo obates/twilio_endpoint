@@ -1,6 +1,7 @@
 class Order
-  def initialize(order_hash)
+  def initialize(config, order_hash)
     @order_hash = order_hash
+    @config     = config
   end
 
   def address

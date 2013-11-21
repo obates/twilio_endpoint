@@ -65,6 +65,36 @@
         "order_number": "payload.shipment.order_number"
       }
     }
+  },
+  {
+    "name": "sms_cancel",
+    "path": "/sms_cancel",
+    "description": "Sends a sms for every canceled order",
+    "requires": {
+      "parameters": [
+      {
+        "name": "account_sid",
+        "description": "Twilio Account Sid"
+      },
+      {
+        "name": "auth_token",
+        "description": "Twillio Auth Token"
+      },
+      {
+        "name": "phone_from",
+        "description": "Twilio registered phone number"
+      },
+      {
+        "name": "address_type",
+        "description": "Address values to use for Message, either billing or shipping",
+        "allowed": ["billing", "shipping"]
+      }
+      ]
+    },
+    "recommends": {
+      "messages": [ "order:canceled" ]
+    }
   }
   ]
 }
+
