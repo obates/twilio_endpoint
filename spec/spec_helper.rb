@@ -18,4 +18,3 @@ RSpec.configure do |config|
   config.include Rack::Test::Methods
 end
 
-ENDPOINT_KEY = ENV['ENDPOINT_KEY'] = '123'

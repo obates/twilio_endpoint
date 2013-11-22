@@ -1,3 +1,5 @@
+ENDPOINT_KEY = ENV['ENDPOINT_KEY'] = '123'
+
 module Controllers
   def auth
     { 'HTTP_X_AUGURY_TOKEN' => ENDPOINT_KEY, 'CONTENT_TYPE' => 'application/json' }
@@ -8,7 +10,7 @@ module Controllers
   end
 
   def app
-    TwilioEndpoint
+    described_class
   end
 end
 
