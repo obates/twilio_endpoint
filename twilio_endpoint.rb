@@ -10,8 +10,10 @@ class TwilioEndpoint < EndpointBase
     client = Twilio::REST::Client.new(@config['twilio.account_sid'], @config['twilio.auth_token'])
 
     body   = "Hey #{order.customer_name}! Your order #{order.number} has been received."
+    
+    phone = "+441183247013"
 
-    message = Message.new(@config, body, order.customer_phone)
+    message = Message.new(@config, body, phone)
     message.deliver
 
 
@@ -23,11 +25,12 @@ class TwilioEndpoint < EndpointBase
     shipment = @message['payload']['shipment']['number']
     order    = @message['payload']['shipment']['order_number']
     name     = @message['payload']['shipment']['shipping_address']['firstname']
-    phone    = @message['payload']['shipment']['shipping_address']['phone']
 
     client = Twilio::REST::Client.new(@config['twilio.account_sid'], @config['twilio.auth_token'])
 
     body   = "Hey #{name}! Your shipment \##{shipment} for order \##{order} has shipped."
+    
+    phone = "+441183247013"
 
     message = Message.new(@config, body, phone)
     message.deliver
@@ -44,7 +47,9 @@ class TwilioEndpoint < EndpointBase
 
     body   = "Hey #{order.customer_name}! Your order #{order.number} has been canceled."
 
-    message = Message.new(@config, body, order.customer_phone)
+    phone = "+441183247013"
+
+    message = Message.new(@config, body, phone)
     message.deliver
 
 
